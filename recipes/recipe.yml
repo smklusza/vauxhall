@@ -18,14 +18,34 @@ modules:
   - type: rpm-ostree
     repos:
       # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://download.docker.com/linux/fedora/docker-ce.repo
     install:
-      # - micro
-      # - starship
+      # Containerization
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+      - podman-compose
+      - distrobox
+      # QOL
+      - ulauncher
+      - plank
+      - nitrogen
+      - numix-icon-theme-circle
+      - numix-gtk-theme
+      - lightdm-gtk
+      - lightdm-settings
+      - lightdm-gtk-greeter-settings
+      # LISP
+      - emacs
+      - emacs-goodies
+      - emacs-slime
+      - racket
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
-      # - firefox
-      # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+      - firefox
+      - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
@@ -35,14 +55,37 @@ modules:
       # repo-name: flathub
       # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
-        # - org.mozilla.firefox
-        # - org.gnome.Loupe
-        # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
+        - io.github.zen_browser.zen
+        - md.obsidian.Obsidian
+        - io.github.flattool.Warehouse
+        - org.onlyoffice.desktopeditors
+        - org.libreoffice.LibreOffice
+        - garden.jamie.Morphosis
+        - org.moneymanagerex.MMEX
+        - io.github.Qalculate
+        - com.protonvpn.www
+        - me.proton.Pass
+        - io.github.dvlv.boxbuddyrs
+        - io.podman_desktop.PodmanDesktop
+        - org.geany.Geany
+      # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
       # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
       # only normal flatpak applications are (like Floorp Lightning web browser in this example).
       # Installing different branches of the same Flatpak is not supported.
       remove:
-      # - org.gnome.eog
+      - org.gnome.eog
+
+  - type: brew
+    brew-analytics: false
+    auto-update: true
+    auto-upgrade: true
+    nofile-limits: true
+
+  - type: systemd
+    system:
+      enabled:
+        - docker.service
+        - docker.socket
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
