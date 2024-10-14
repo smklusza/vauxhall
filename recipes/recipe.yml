@@ -33,6 +33,10 @@ modules:
       - nitrogen
       - numix-icon-theme-circle
       - numix-gtk-theme
+      - pop-gtk2-theme
+      - materia-gtk-theme
+      - xfdashboard-themes
+      - pop-icon-theme
       - lightdm-gtk
       - lightdm-settings
       - lightdm-gtk-greeter-settings
@@ -41,6 +45,10 @@ modules:
       - emacs-goodies
       - emacs-slime
       - racket
+      # sound
+      - pulseaudio-module-x11
+      #security
+      - firewalld
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
