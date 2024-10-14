@@ -45,8 +45,6 @@ modules:
       - emacs-goodies
       - emacs-slime
       - racket
-      # sound
-      - pulseaudio-module-x11
       #security
       - firewalld
     remove:
