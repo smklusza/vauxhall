@@ -1,11 +1,11 @@
 # image will be published to ghcr.io/<user>/<name>
 name: vauxhall
 # description will be included in the image's metadata
-description: This is my personal XFCE image.
+description: This is my personal LXQT image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/vauxite-main
-image-version: 40 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/lazurite-main
+image-version: 41 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -28,9 +28,9 @@ modules:
       - podman-compose
       - distrobox
       # QOL
-      - ulauncher
+      # - ulauncher
       - plank
-      - nitrogen
+      # - nitrogen
       - numix-icon-theme-circle
       - numix-gtk-theme
       - pop-gtk2-theme
@@ -41,10 +41,10 @@ modules:
       - lightdm-settings
       - lightdm-gtk-greeter-settings
       # LISP
-      - emacs
-      - emacs-goodies
-      - emacs-slime
-      - racket
+      # - emacs
+      # - emacs-goodies
+      # - emacs-slime
+      # - racket
       #security
       - firewalld
     remove:
@@ -66,14 +66,14 @@ modules:
         - io.github.flattool.Warehouse
         - org.onlyoffice.desktopeditors
         - org.libreoffice.LibreOffice
-        - garden.jamie.Morphosis
-        - org.moneymanagerex.MMEX
-        - io.github.Qalculate
+        # - garden.jamie.Morphosis
+        # - org.moneymanagerex.MMEX
+        # - io.github.Qalculate
         - com.protonvpn.www
         - me.proton.Pass
         - io.github.dvlv.boxbuddyrs
         - io.podman_desktop.PodmanDesktop
-        - org.geany.Geany
+        # - org.geany.Geany
       # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
       # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
       # only normal flatpak applications are (like Floorp Lightning web browser in this example).
